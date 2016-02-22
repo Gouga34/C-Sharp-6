@@ -6,6 +6,7 @@
 - [Imports statiques](#importsStatiques)
 - [Écriture lambda dans les propriétés, fonctions, ...](#ecritureLambda)
 - [Initialiseurs avec membres indexés](#initMembresIndexes)
+- [`await` dans les blocks catch et finally d'un try](#awaitCatchFinally)
 
 ## Propriétés accessibles uniquement en lecture <a id="proplectureseule"></a>
 
@@ -81,4 +82,22 @@ var chiens = new Dictionary<string, int>
     ["neska"] = 4,
     ...
 };
+```
+## `await` dans les blocks catch et finally d'un try  <a id="awaitCatchFinally"></a>
+En C# 5, `await` ne pouvait pas être utilisé dans les blocs `catch` et `finally`.
+
+On peut donc maintenant faire :
+```cs
+private async Task DoSomethingAsync()
+{
+    try
+    {
+        ...
+    }
+    catch (Exception ex)
+    {
+        var dialog = new MessageDialog("Exception");
+        await dialog.ShowAsync();
+    }
+}
 ```
