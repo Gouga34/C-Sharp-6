@@ -10,6 +10,7 @@
 - [Filtres dans les blocs d'exception](#filtresExceptions)
 - [Null Propagation](#nullPropagation)
 - [String interpolation](#stringInterpolation)
+- [Opérateur nameof](#nameof)
 
 ## Propriétés accessibles uniquement en lecture <a id="proplectureseule"></a>
 
@@ -147,10 +148,17 @@ var str = String.Format("{0} est un {1}", name, breed);
 ```
 
 Après :
-Avant :
 ```cs
 var name = "Shana";
 var breed = "Epagneul breton";
 
 var str = $"{name} est un {breed}";
+```
+
+## Opérateur nameof <a id="nameof"></a>
+Cet opérateur renvoie dans une chaîne de caractères le nom du symbole fourni :
+
+```cs
+string name = nameof(animal.Name);
+string writeLine = nameof(Console.WriteLine);
 ```
