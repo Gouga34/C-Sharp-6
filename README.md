@@ -47,4 +47,17 @@ namespace CSharpSix
 }
 ```
 ## Écriture lambda dans les propriétés, fonctions, ...
-On peut maintenant écrire directement le contenu d'une fonction/propriété/procédure en utilisant la syntaxe lambda ( `=>` ). 
+On peut maintenant écrire directement le contenu d'une fonction/propriété/procédure en utilisant la syntaxe lambda ( `=>` )
+
+
+Exemple :
+```cs
+public class Point
+{
+  public int PointA{get;set;}
+  public string PointB{get;set;}
+  public int Distance => (int)(PointA-PointB);
+
+  public void SayHello => Console.WriteLine("Hello world");
+}
+```
