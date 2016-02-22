@@ -8,6 +8,7 @@
 - [Initialiseurs avec membres indexés](#initMembresIndexes)
 - [`await` dans les blocks catch et finally d'un try](#awaitCatchFinally)
 - [Filtres dans les blocs d'exception](#filtresExceptions)
+- [Null Propagation](#nullPropagation)
 
 ## Propriétés accessibles uniquement en lecture <a id="proplectureseule"></a>
 
@@ -115,3 +116,20 @@ On peut maintenant mettre en place des filtres lorsque une exception est levée 
     ...
   }
 ```
+## Null Propagation <a id="nullPropagation"></a>
+Cette fonctionnalité introduit le nouvel opérateur `?.`. Avec la Null Propagation, on peut accéder aux membres d'un objet sans qu'une `NullReferenceException` soit levée dans le cas où l'objet est `null`.
+
+Avant :
+```cs
+  if(animal != null)
+  {
+      string name = animal.Name;
+  }
+```
+
+Après :
+```cs
+    string name = animal?.Name;
+```
+
+`Name` ne sera évalué que si `animal` est non null. Sinon, l'expression entière renvoie `null`.
