@@ -7,6 +7,7 @@
 - [Écriture lambda dans les propriétés, fonctions, ...](#ecritureLambda)
 - [Initialiseurs avec membres indexés](#initMembresIndexes)
 - [`await` dans les blocks catch et finally d'un try](#awaitCatchFinally)
+- [Filtres dans les blocs d'exception](#filtresExceptions)
 
 ## Propriétés accessibles uniquement en lecture <a id="proplectureseule"></a>
 
@@ -83,7 +84,7 @@ var chiens = new Dictionary<string, int>
     ...
 };
 ```
-## `await` dans les blocks catch et finally d'un try  <a id="awaitCatchFinally"></a>
+## `await` dans les blocs catch et finally d'un try  <a id="awaitCatchFinally"></a>
 En C# 5, `await` ne pouvait pas être utilisé dans les blocs `catch` et `finally`.
 
 On peut donc maintenant faire :
@@ -100,4 +101,17 @@ private async Task DoSomethingAsync()
         await dialog.ShowAsync();
     }
 }
+```
+## Filtres dans les blocs d'exception <a id="filtresExceptions"></a>
+On peut maintenant mettre en place des filtres lorsque une exception est levée :
+
+```cs
+  try
+  {
+    ...
+  }
+  catch(Exception e) when(e is NotImplementedException)
+  {
+    ...
+  }
 ```
