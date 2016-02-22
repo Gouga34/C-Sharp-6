@@ -9,6 +9,7 @@
 - [`await` dans les blocks catch et finally d'un try](#awaitCatchFinally)
 - [Filtres dans les blocs d'exception](#filtresExceptions)
 - [Null Propagation](#nullPropagation)
+- [String interpolation](#stringInterpolation)
 
 ## Propriétés accessibles uniquement en lecture <a id="proplectureseule"></a>
 
@@ -133,3 +134,23 @@ Après :
 ```
 
 `Name` ne sera évalué que si `animal` est non null. Sinon, l'expression entière renvoie `null`.
+
+## String interpolation <a id="stringInterpolation"></a>
+Cette fonctionnalité permet de formater plus simplement les chaînes de caractères.
+
+Avant :
+```cs
+var name = "Shana";
+var breed = "Epagneul breton";
+
+var str = String.Format("{0} est un {1}", name, breed);
+```
+
+Après :
+Avant :
+```cs
+var name = "Shana";
+var breed = "Epagneul breton";
+
+var str = $"{name} est un {breed}";
+```
