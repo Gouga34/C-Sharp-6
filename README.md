@@ -134,6 +134,16 @@ Après :
     string name = animal?.Name;
 ```
 
+Autres exemples :
+```cs
+  int? age = animal?.Age; // null si animal est null
+  int age = animal?.Age ?? 0; // 0 si animal est null
+  if(animal?.IsDog() ?? false)
+  {
+      ...
+  }
+```
+
 `Name` ne sera évalué que si `animal` est non null. Sinon, l'expression entière renvoie `null`.
 
 ## String interpolation <a id="stringInterpolation"></a>
